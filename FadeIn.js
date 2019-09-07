@@ -61,14 +61,15 @@ export default class FadeIn extends React.Component {
        opinion it looks better when the images fade in separately
        (handled with staggerNonce) */
 
-    const minimumWait = 100;
-    const staggerNonce = 200 * Math.random();
+    const minimumWait = 50;
+    const staggerNonce = 50 * Math.random();
 
     this.setTimeout(() => {
       Animated.timing(this.state.placeholderContainerOpacity, {
         toValue: 0,
-        duration: 350,
+        duration: 200,
         useNativeDriver: this.props.useNativeDriver,
+        isInteraction: false,
       }).start();
     }, minimumWait + staggerNonce);
   };
